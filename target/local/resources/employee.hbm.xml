@@ -9,10 +9,10 @@
  			This class contains the employee detail
  		</meta>
  		<id name="id" type="int" column="id">
- 			<generator class="native"/>
+ 			<generator class="increment"/>
  		</id>
  		<property name="firstName" column="first_name" type="string"/>
- 		<property name="lasttName" column="last_name" type="string"/>
+ 		<property name="lastName" column="last_name" type="string"/>
  		<property name="salary" column="salary" type="int"/>
  	</class>
- </hibernate-mapping>>
+ </hibernate-mapping>

@@ -9,7 +9,7 @@
 		</property>
 		<property name="hibernate.connection.driver_class">
 			oracle.jdbc.driver.OracleDriver
-		</property>>
+		</property>
 		<!--The table name is employee-->
 		<property name="hibernate.connection.url">
 			jdbc:oracle:thin:@localhost:1521:XE

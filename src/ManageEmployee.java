@@ -5,6 +5,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 
@@ -14,7 +15,11 @@ public class ManageEmployee {
 	public static void main(String args[]) {
 		
 		try{
-			factory = new Configuration().configure().buildSessionFactory();
+			//factory = new Configuration().configure().buildSessionFactory();
+			Configuration configuration = new Configuration().configure();
+			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+			applySettings(configuration.getProperties());
+			factory = configuration.buildSessionFactory(builder.build());
 		}catch (Throwable ex) {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
