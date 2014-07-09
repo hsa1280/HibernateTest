@@ -15,6 +15,7 @@ public class ManageEmployee {
 	public static void main(String args[]) {
 		
 		try{
+			//the buildSessionFactory() was deprecated.  
 			//factory = new Configuration().configure().buildSessionFactory();
 			Configuration configuration = new Configuration().configure();
 			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
