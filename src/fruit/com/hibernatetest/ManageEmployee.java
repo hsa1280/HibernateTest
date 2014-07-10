@@ -1,3 +1,4 @@
+package fruit.com.hibernatetest;
 import java.util.List;
 
 import org.hibernate.HibernateException;

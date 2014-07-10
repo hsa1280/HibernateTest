@@ -1,3 +1,4 @@
+package fruit.com.hibernatetest;
 
 public class Employee {
 

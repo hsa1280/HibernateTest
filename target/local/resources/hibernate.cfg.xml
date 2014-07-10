@@ -4,20 +4,20 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.dialect">
+		<property name="dialect">
 			org.hibernate.dialect.Oracle10gDialect
 		</property>
-		<property name="hibernate.connection.driver_class">
+		<property name="connection.driver_class">
 			oracle.jdbc.driver.OracleDriver
 		</property>
 		<!--The table name is employee-->
-		<property name="hibernate.connection.url">
+		<property name="connection.url">
 			jdbc:oracle:thin:@localhost:1521:XE
 		</property>
-		<property name="hibernate.connection.username">
+		<property name="connection.username">
 			employee
 		</property>
-		<property name="hibernate.connection.password">
+		<property name="connection.password">
 			password
 		</property>
 		<!--List of XML mapping files-->
