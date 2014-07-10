@@ -63,6 +63,13 @@ public class ManageEmployee {
     	Transaction tx = null;
     	try{
     		tx = session.beginTransaction();
+//            List employees = session.createQuery("FROM Employee").list(); 
+//            for (Iterator iterator = employees.iterator(); iterator.hasNext();){
+//               Employee employee = (Employee) iterator.next(); 
+//               System.out.print("First Name: " + employee.getFirstName()); 
+//               System.out.print("  Last Name: " + employee.getLastName()); 
+//               System.out.println("  Salary: " + employee.getSalary()); 
+//            }
     		List<Employee> employees = session.createQuery("From Employee").list();
     		for( Employee employee : employees ) {
     	           System.out.print("First Name: " + employee.getFirstName()); 
