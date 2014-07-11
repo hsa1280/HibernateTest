@@ -34,6 +34,12 @@ public class ManageEmployee {
 	    
 	    /*List down all the employees*/
 	    me.listEmployees();
+	    
+	    me.updateEmployee(empID1, 2500);
+	    me.listEmployees();
+	    
+	    me.deleteEmployee(empID2);
+	    me.listEmployees();
 	}
 	
     
@@ -73,6 +79,43 @@ public class ManageEmployee {
     		if(tx != null)
     			tx.rollback();
     		e.printStackTrace();
+    	}
+    }
+    
+    public void updateEmployee( Integer employeeID, int salary) {
+    	
+    	Session session = factory.openSession();
+    	Transaction tx = null;
+    	try{
+    		tx = session.beginTransaction();
+    		Employee employee = (Employee)session.get(Employee.class, employeeID);
+    		employee.setSalary(salary);
+    		session.update(employee);
+    		tx.commit();
+    	}catch( HibernateException e) {
+    		if(tx != null)
+    			tx.rollback();
+    		e.printStackTrace();
+    	}finally{
+    		session.close();
+    	}
+    }
+    
+    public void deleteEmployee(Integer employeeID) {
+    	
+    	Session session = factory.openSession();
+    	Transaction tx = null;
+    	try{
+    		tx = session.beginTransaction();
+    		Employee employee = (Employee)session.get(Employee.class, employeeID);
+    		session.delete(employee);
+    		tx.commit();
+    	}catch(HibernateException e) {
+    		if(tx != null)
+    			tx.rollback();
+    		e.printStackTrace();
+    	}finally {
+    		session.close();
     	}
     }
 }
