@@ -1,17 +1,17 @@
 package fruit.com.hibernatetest;
 
-public class Employee {
+public class Employee1 {
 
 	private int id;
 	private String firstName;
 	private String lastName;
 	private int salary;
 	
-	public Employee(){
+	public Employee1(){
 		
 	}
 	
-	public Employee( String fname, String lname, int salary ) {
+	public Employee1( String fname, String lname, int salary ) {
 		
 		this.firstName = fname;
 		this.lastName = lname;
