@@ -33,6 +33,7 @@ public class ManageEmployee {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
+		
 		ManageEmployee me = new ManageEmployee();
 		
 		/*Add few employee records in database*/
