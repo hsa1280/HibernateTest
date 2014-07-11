@@ -21,6 +21,6 @@
 			password
 		</property>
 		<!--List of XML mapping files-->
-		<mapping resource="employee.hbm.xml"/>
+		<!--<mapping resource="employee.hbm.xml"/> -->
 	</session-factory>
 </hibernate-configuration>

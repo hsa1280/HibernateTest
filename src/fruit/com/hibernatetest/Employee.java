@@ -1,23 +1,35 @@
 package fruit.com.hibernatetest;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "EMPLOYEE")
+@SequenceGenerator(name="my_seq", sequenceName="my_seq", allocationSize = 1)
 public class Employee {
-
+	@Id 
+	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "my_seq" )
+	@Column(name= "id")
 	private int id;
+	
+	@Column(name = "first_name")
 	private String firstName;
+	
+	@Column(name = "last_name")
 	private String lastName;
+	
+	@Column(name = "salary")
 	private int salary;
-	
-	public Employee(){
-		
-	}
-	
-	public Employee( String fname, String lname, int salary ) {
-		
-		this.firstName = fname;
-		this.lastName = lname;
-		this.salary = salary;
-	}
 
+	public Employee() {
+		
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -38,8 +50,8 @@ public class Employee {
 		return lastName;
 	}
 
-	public void setLastName(String lastNmae) {
-		this.lastName = lastNmae;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public int getSalary() {
@@ -49,6 +61,5 @@ public class Employee {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	
 	
 }

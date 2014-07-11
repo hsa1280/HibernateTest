@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 
@@ -17,10 +18,17 @@ public class ManageEmployee {
 		try{
 			//the buildSessionFactory() was deprecated.  
 			//factory = new Configuration().configure().buildSessionFactory();
-			Configuration configuration = new Configuration().configure();
-			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-			applySettings(configuration.getProperties());
-			factory = configuration.buildSessionFactory(builder.build());
+			
+//			Configuration configuration = new Configuration().configure();
+//			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+//			applySettings(configuration.getProperties());
+//			factory = configuration.buildSessionFactory(builder.build());
+			
+	         factory = new AnnotationConfiguration().
+	                   configure().
+	                   //addPackage("com.xyz") //add package if used.
+	                   addAnnotatedClass(Employee.class).
+	                   buildSessionFactory();
 		}catch (Throwable ex) {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
@@ -35,11 +43,11 @@ public class ManageEmployee {
 	    /*List down all the employees*/
 	    me.listEmployees();
 	    
-	    me.updateEmployee(empID1, 2500);
-	    me.listEmployees();
-	    
-	    me.deleteEmployee(empID2);
-	    me.listEmployees();
+//	    me.updateEmployee(empID1, 2500);
+//	    me.listEmployees();
+//	    
+//	    me.deleteEmployee(empID2);
+//	    me.listEmployees();
 	}
 	
     
@@ -50,7 +58,11 @@ public class ManageEmployee {
     	Integer employeeID = null;
     	try{
     		tx = session.beginTransaction();
-    		Employee employee = new Employee(fname, lname, salary);
+    		//Employee employee = new Employee(fname, lname, salary);
+            Employee employee = new Employee();
+            employee.setFirstName(fname);
+            employee.setLastName(lname);
+            employee.setSalary(salary);
     		employeeID = (Integer)session.save(employee);
     		tx.commit();
     	}catch(HibernateException e) {
