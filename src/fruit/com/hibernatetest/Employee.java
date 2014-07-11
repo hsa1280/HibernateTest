@@ -12,6 +12,16 @@ import javax.persistence.Table;
 @Table(name = "EMPLOYEE")
 @SequenceGenerator(name="my_seq", sequenceName="my_seq", allocationSize = 1)
 public class Employee {
+	//There are other ways to generate sequence
+	/*
+	 * 1.@GenericGenerator(name="generator", strategy="increment")
+	 * 	 @GeneratedValue(generator="generator")
+	 */
+	/*
+	 * 2.@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	 * type canbe AUTO, IDENTITY, SEQUENCE, or TABLE
+	 * a sequence for Oracle, an identity for MS SQL
+	 */
 	@Id 
 	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "my_seq" )
 	@Column(name= "id")
