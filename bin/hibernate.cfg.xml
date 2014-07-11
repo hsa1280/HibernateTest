@@ -20,6 +20,9 @@
 		<property name="connection.password">
 			password
 		</property>
+		<property name="hibernate.hbm2ddl.auto">
+			create
+		</property>
 		<!--List of XML mapping files-->
 		<!--<mapping resource="employee.hbm.xml"/> -->
 	</session-factory>
