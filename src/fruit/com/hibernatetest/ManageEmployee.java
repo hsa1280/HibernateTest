@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 
@@ -19,18 +18,20 @@ public class ManageEmployee {
 			//the buildSessionFactory() was deprecated.  
 			//factory = new Configuration().configure().buildSessionFactory();
 			
+			//This code is used for xml configuration
 //			Configuration configuration = new Configuration().configure();
 //			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
 //			applySettings(configuration.getProperties());
 //			factory = configuration.buildSessionFactory(builder.build());
 			
+			//This code is used for annotation configuration
 			Configuration configuration = new Configuration().configure();
 			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
 			applySettings(configuration.getProperties());
 	        factory = new Configuration().configure().addAnnotatedClass(Employee.class).buildSessionFactory(builder.build());
 	         
 		}catch (Throwable ex) {
-			System.err.println("Failed to create sessionFactory object." + ex);
+			System.err.println("Failed toreate sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
 		
@@ -44,11 +45,12 @@ public class ManageEmployee {
 	    /*List down all the employees*/
 	    me.listEmployees();
 	    
-//	    me.updateEmployee(empID1, 2500);
-//	    me.listEmployees();
-//	    
-//	    me.deleteEmployee(empID2);
-//	    me.listEmployees();
+	    me.updateEmployee(empID1, 2500);
+	    me.updateEmployee(empID3, 20000);
+	    me.listEmployees();
+
+	    me.deleteEmployee(empID2);
+	    me.listEmployees();
 	}
 	
     
@@ -82,7 +84,8 @@ public class ManageEmployee {
     	Transaction tx = null;
     	try{
     		tx = session.beginTransaction();
-    		List<Employee> employees = session.createQuery("From Employee").list();
+    		@SuppressWarnings("unchecked")
+			List<Employee> employees = session.createQuery("From Employee").list();
     		for( Employee employee : employees ) {
     	           System.out.print("First Name: " + employee.getFirstName()); 
     	           System.out.print("  Last Name: " + employee.getLastName()); 
