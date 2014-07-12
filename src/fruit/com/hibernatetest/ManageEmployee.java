@@ -24,11 +24,11 @@ public class ManageEmployee {
 //			applySettings(configuration.getProperties());
 //			factory = configuration.buildSessionFactory(builder.build());
 			
-	         factory = new AnnotationConfiguration().
-	                   configure().
-	                   //addPackage("com.xyz") //add package if used.
-	                   addAnnotatedClass(Employee.class).
-	                   buildSessionFactory();
+			Configuration configuration = new Configuration().configure();
+			StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+			applySettings(configuration.getProperties());
+	        factory = new Configuration().configure().addAnnotatedClass(Employee.class).buildSessionFactory(builder.build());
+	         
 		}catch (Throwable ex) {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
