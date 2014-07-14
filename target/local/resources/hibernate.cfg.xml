@@ -20,8 +20,13 @@
 		<property name="connection.password">
 			password
 		</property>
+		<!-- After creating a table, we can change create to update, otherwise the created table will be destroyed -->
 		<property name="hibernate.hbm2ddl.auto">
-			create
+			update
+		</property>
+		<!-- show sql query on Eclipse console -->
+		<property name="show_sql">
+			true
 		</property>
 		<!--List of XML mapping files-->
 		<!--<mapping resource="employee.hbm.xml"/> -->
