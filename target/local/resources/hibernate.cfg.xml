@@ -22,7 +22,7 @@
 		</property>
 		<!-- After creating a table, we can change create to update, otherwise the created table will be destroyed -->
 		<property name="hibernate.hbm2ddl.auto">
-			update
+			create
 		</property>
 		<!-- show sql query on Eclipse console -->
 		<property name="show_sql">

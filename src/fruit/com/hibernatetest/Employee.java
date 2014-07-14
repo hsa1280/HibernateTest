@@ -1,16 +1,16 @@
 package fruit.com.hibernatetest;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "EMPLOYEE")
-@SequenceGenerator(name="my_seq", sequenceName="my_seq", allocationSize = 1)
+//@SequenceGenerator(name="my_seq", sequenceName="my_seq", allocationSize = 1)
 public class Employee {
 	//There are other ways to generate sequence
 	/*
@@ -23,7 +23,8 @@ public class Employee {
 	 * a sequence for Oracle, an identity for MS SQL
 	 */
 	@Id 
-	@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "my_seq" )
+	//@GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "my_seq" )
+	@GeneratedValue
 	@Column(name= "id")
 	private int id;
 	
@@ -35,6 +36,8 @@ public class Employee {
 	
 	@Column(name = "salary")
 	private int salary;
+	
+	private Address address;
 
 	public Employee() {
 		
@@ -46,6 +49,14 @@ public class Employee {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public String getFirstName() {

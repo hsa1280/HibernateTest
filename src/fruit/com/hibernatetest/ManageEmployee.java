@@ -38,23 +38,28 @@ public class ManageEmployee {
 		ManageEmployee me = new ManageEmployee();
 		
 		/*Add few employee records in database*/
-		Integer empID1 = me.addEmployee("Zara", "Ali", 1000);
-	    Integer empID2 = me.addEmployee("Daisy", "Das", 5000);
-	    Integer empID3 = me.addEmployee("John", "Paul", 10000);
+		Address address = new Address();
+		address.setCity("Bowling Green");
+		address.setState("KY");
+		address.setStreet("Campell Lane");
+		address.setZipcode("42104");
+		Integer empID1 = me.addEmployee("Zara", "Ali", 1000, address);
+//	    Integer empID2 = me.addEmployee("Daisy", "Das", 5000);
+//	    Integer empID3 = me.addEmployee("John", "Paul", 10000);
 	    
 	    /*List down all the employees*/
 	    me.listEmployees();
 	    
-	    me.updateEmployee(empID1, 2500);
-	    me.updateEmployee(empID3, 20000);
-	    me.listEmployees();
+//	    me.updateEmployee(empID1, 2500);
+//	    me.updateEmployee(empID3, 20000);
+//	    me.listEmployees();
 
-	    me.deleteEmployee(empID2);
-	    me.listEmployees();
+	    //me.deleteEmployee(empID2);
+	    //me.listEmployees();
 	}
 	
     
-    public Integer addEmployee( String fname, String lname, int salary) {
+    public Integer addEmployee( String fname, String lname, int salary, Address address) {
     	
     	Session session = factory.openSession();
     	Transaction tx = null;
@@ -66,6 +71,7 @@ public class ManageEmployee {
             employee.setFirstName(fname);
             employee.setLastName(lname);
             employee.setSalary(salary);
+            employee.setAddress(address);
     		employeeID = (Integer)session.save(employee);
     		tx.commit();
     	}catch(HibernateException e) {
