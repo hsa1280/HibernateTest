@@ -30,5 +30,7 @@
 		</property>
 		<!--List of XML mapping files-->
 		<!--<mapping resource="employee.hbm.xml"/> -->
+		<mapping class="fruit.com.hibernatetest.Employee"/>
+		<mapping class="fruit.com.hibernatetest.Vechicle"/>
 	</session-factory>
 </hibernate-configuration>
