@@ -23,6 +23,9 @@ public class HibernateTest {
 		user.getVehicles().add(vehicle);
 		user.getVehicles().add(vehicle2);
 		
+		vehicle.getUsers().add(user);
+		vehicle2.getUsers().add(user);
+		
 		Configuration configuration = new Configuration().configure();
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
 		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
