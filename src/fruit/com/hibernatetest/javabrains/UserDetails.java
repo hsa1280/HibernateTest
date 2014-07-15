@@ -24,8 +24,8 @@ public class UserDetails {
 //			joinColumns=@JoinColumn(name="USER_ID"),
 //			inverseJoinColumns=@JoinColumn(name="VEHICLE_ID")
 //	)
-	@ManyToMany(mappedBy="users")
-	private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
+	//@ManyToMany(mappedBy="users")
+	//private Collection<Vehicle> vehicles = new ArrayList<Vehicle>();
 	
 	public int getUserId() {
 		return userId;
@@ -38,12 +38,6 @@ public class UserDetails {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-	public Collection<Vehicle> getVehicles() {
-		return vehicles;
-	}
-	public void setVehicles(Collection<Vehicle> vehicles) {
-		this.vehicles = vehicles;
 	}
 	
 }

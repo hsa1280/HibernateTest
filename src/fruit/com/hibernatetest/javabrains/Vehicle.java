@@ -17,13 +17,13 @@ public class Vehicle {
 	private int vechicleID;
 	private String vechicleName;
 	
-	@ManyToMany
-	@JoinTable(
-			name="USER_VEHICLE",
-			joinColumns=@JoinColumn(name="VEHICLE_ID"),
-			inverseJoinColumns=@JoinColumn(name="USER_ID")
-	)
-	private Collection<UserDetails> users = new ArrayList<UserDetails>();
+//	@ManyToMany
+//	@JoinTable(
+//			name="USER_VEHICLE",
+//			joinColumns=@JoinColumn(name="VEHICLE_ID"),
+//			inverseJoinColumns=@JoinColumn(name="USER_ID")
+//	)
+//	private Collection<UserDetails> users = new ArrayList<UserDetails>();
 	
 	public int getVechicleID() {
 		return vechicleID;
@@ -37,12 +37,5 @@ public class Vehicle {
 	public void setVechicleName(String vechicleName) {
 		this.vechicleName = vechicleName;
 	}
-	public Collection<UserDetails> getUsers() {
-		return users;
-	}
-	public void setUsers(Collection<UserDetails> users) {
-		this.users = users;
-	}
-	
 	
 }
