@@ -1,10 +1,13 @@
-package fruit.com.hibernatetest;
+package fruit.com.hibernatetest.javabrains;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Vechicle {
-
+	@Id 
+	@GeneratedValue
 	private int vechicleID;
 	private String vechicleName;
 	

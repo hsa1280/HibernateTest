@@ -1,4 +1,4 @@
-package fruit.com.hibernatetest;
+package fruit.com.hibernatetest.self;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+
+import fruit.com.hibernatetest.javabrains.Vechicle;
 
 
 public class ManageEmployee {
@@ -43,6 +45,8 @@ public class ManageEmployee {
 		address.setState("KY");
 		address.setStreet("Campell Lane");
 		address.setZipcode("42104");
+		
+
 		Integer empID1 = me.addEmployee("Zara", "Ali", 1000, address);
 //	    Integer empID2 = me.addEmployee("Daisy", "Das", 5000);
 //	    Integer empID3 = me.addEmployee("John", "Paul", 10000);
@@ -73,6 +77,10 @@ public class ManageEmployee {
             employee.setSalary(salary);
             employee.setAddress(address);
     		employeeID = (Integer)session.save(employee);
+    		
+    		Vechicle vechicle = new Vechicle();
+    		vechicle.setVechicleName("Car");
+    		session.save(vechicle);
     		tx.commit();
     	}catch(HibernateException e) {
     		if(tx != null) 

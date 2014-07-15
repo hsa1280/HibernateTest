@@ -1,4 +1,4 @@
-package fruit.com.hibernatetest;
+package fruit.com.hibernatetest.self;
 
 import javax.persistence.Embeddable;
 

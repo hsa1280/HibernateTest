@@ -1,10 +1,14 @@
-package fruit.com.hibernatetest;
+package fruit.com.hibernatetest.self;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import fruit.com.hibernatetest.javabrains.Vechicle;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -80,5 +84,5 @@ public class Employee {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	
+
 }
