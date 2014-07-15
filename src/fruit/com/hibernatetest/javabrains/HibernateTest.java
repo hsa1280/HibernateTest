@@ -14,9 +14,14 @@ public class HibernateTest {
 		UserDetails user = new UserDetails();
 		user.setUserName("First User");
 		
-		Vechicle vechicle = new Vechicle();
-		vechicle.setVechicleName("car");
-		user.setVechicle(vechicle);
+		Vehicle vehicle = new Vehicle();
+		vehicle.setVechicleName("car");
+		
+		Vehicle vehicle2 = new Vehicle();
+		vehicle2.setVechicleName("Jeep");
+		
+		user.getVehicles().add(vehicle);
+		user.getVehicles().add(vehicle2);
 		
 		Configuration configuration = new Configuration().configure();
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
@@ -25,7 +30,8 @@ public class HibernateTest {
 		
 		session.beginTransaction();
 		session.save(user);
-		session.save(vechicle);
+		session.save(vehicle);
+		session.save(vehicle2);
 		session.getTransaction().commit();
 		
 		session.close();

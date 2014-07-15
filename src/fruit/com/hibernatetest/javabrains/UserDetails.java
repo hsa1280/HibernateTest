@@ -1,11 +1,15 @@
 package fruit.com.hibernatetest.javabrains;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -16,9 +20,13 @@ public class UserDetails {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@OneToOne
-	@JoinColumn(name="VECHICLE_ID")
-	private Vechicle vechicle;
+	@OneToMany
+	@JoinTable(
+			name="USER_VEHICLE",
+			joinColumns=@JoinColumn(name="USER_ID"),
+			inverseJoinColumns=@JoinColumn(name="VEHICLE_ID")
+	)
+	private Collection<Vehicle> vehicleS = new ArrayList<Vehicle>();
 	
 	public int getUserId() {
 		return userId;
@@ -32,11 +40,11 @@ public class UserDetails {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public Vechicle getVechicle() {
-		return vechicle;
+	public Collection<Vehicle> getVehicles() {
+		return vehicleS;
 	}
-	public void setVechicle(Vechicle vechicle) {
-		this.vechicle = vechicle;
+	public void setVehicles(Collection<Vehicle> vehicleS) {
+		this.vehicleS = vehicleS;
 	}
 	
 }

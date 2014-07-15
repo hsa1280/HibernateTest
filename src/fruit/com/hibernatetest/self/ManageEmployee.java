@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-import fruit.com.hibernatetest.javabrains.Vechicle;
+import fruit.com.hibernatetest.javabrains.Vehicle;
 
 
 public class ManageEmployee {
@@ -78,7 +78,7 @@ public class ManageEmployee {
             employee.setAddress(address);
     		employeeID = (Integer)session.save(employee);
     		
-    		Vechicle vechicle = new Vechicle();
+    		Vehicle vechicle = new Vehicle();
     		vechicle.setVechicleName("Car");
     		session.save(vechicle);
     		tx.commit();

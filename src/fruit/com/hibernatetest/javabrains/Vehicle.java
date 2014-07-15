@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Vechicle {
+public class Vehicle {
 	@Id 
 	@GeneratedValue
 	private int vechicleID;

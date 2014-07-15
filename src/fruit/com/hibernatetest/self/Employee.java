@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import fruit.com.hibernatetest.javabrains.Vechicle;
+import fruit.com.hibernatetest.javabrains.Vehicle;
 
 @Entity
 @Table(name = "EMPLOYEE")
