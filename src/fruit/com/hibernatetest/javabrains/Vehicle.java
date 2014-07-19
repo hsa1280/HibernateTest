@@ -1,16 +1,12 @@
 package fruit.com.hibernatetest.javabrains;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "vehicle", schema = "vehicle")
 public class Vehicle {
 	@Id 
 	@GeneratedValue
