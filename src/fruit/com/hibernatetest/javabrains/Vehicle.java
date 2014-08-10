@@ -3,6 +3,8 @@ package fruit.com.hibernatetest.javabrains;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +23,9 @@ public class Vehicle {
 //	)
 //	private Collection<UserDetails> users = new ArrayList<UserDetails>();
 	
+	@ManyToOne
+	private UserDetails user;
+	
 	public int getVechicleID() {
 		return vechicleID;
 	}
@@ -32,6 +37,12 @@ public class Vehicle {
 	}
 	public void setVechicleName(String vechicleName) {
 		this.vechicleName = vechicleName;
+	}
+	public UserDetails getUser() {
+		return user;
+	}
+	public void setUser(UserDetails user) {
+		this.user = user;
 	}
 	
 }

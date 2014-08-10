@@ -1,0 +1,35 @@
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		<property name="connection.driver_class">
+			oracle.jdbc.driver.OracleDriver
+		</property>
+		<!--The table name is employee-->
+		<property name="connection.url">
+			jdbc:oracle:thin:@localhost:1521:XE
+		</property>
+		<property name="connection.username">
+			employee
+		</property>
+		<property name="connection.password">
+			password
+		</property>
+		<!-- After creating a table, we can change create to update, otherwise the created table will be destroyed -->
+		<property name="hibernate.hbm2ddl.auto">
+			create
+		</property>
+		<!-- show sql query on Eclipse console -->
+		<property name="show_sql">
+			true
+		</property>
+		<!--List of XML mapping files-->
+		<!--<mapping resource="employee.hbm.xml"/> -->
+		<!--<mapping class="fruit.com.hibernatetest.self.Employee"/>-->
+		<mapping class="fruit.com.hibernatetest.javabrains.Vehicle"/>
+		<mapping class="fruit.com.hibernatetest.javabrains.UserDetails"/>
+	</session-factory>
+</hibernate-configuration>

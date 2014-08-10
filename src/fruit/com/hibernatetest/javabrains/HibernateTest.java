@@ -11,8 +11,8 @@ public class HibernateTest {
 
 	public static void main(String args[]) {
 		
-//		UserDetails user = new UserDetails();
-//		user.setUserName("First User");
+		UserDetails user = new UserDetails();
+		user.setUserName("First User");
 		
 		Vehicle vehicle = new Vehicle();
 		vehicle.setVechicleName("car");
@@ -23,8 +23,8 @@ public class HibernateTest {
 //		user.getVehicles().add(vehicle);
 //		user.getVehicles().add(vehicle2);
 		
-//		vehicle.getUsers().add(user);
-//		vehicle2.getUsers().add(user);
+		vehicle.setUser(user);
+		vehicle2.setUser(user);
 		
 		Configuration configuration = new Configuration().configure();
 		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
@@ -32,7 +32,7 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 		
 		session.beginTransaction();
-//		session.save(user);
+		session.save(user);
 		session.save(vehicle);
 		session.save(vehicle2);
 		session.getTransaction().commit();
